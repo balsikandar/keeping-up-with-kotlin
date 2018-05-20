@@ -1,9 +1,7 @@
-# keeping-up-with-kotlin
+# keeping-up-with-java
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/balsikandar/Android-Studio-Plugins/blob/master/LICENSE)
-
-## This is a guide for java 8 APIs, open source libraries and plugins that help us to keep up with newer language features for Android using java
 
 #### Spread Some :heart:
 
@@ -64,9 +62,9 @@ buttonView.setOnClickListener(new View.OnClickListener() {
         });
 ```
 
- ## Lambda Expressions can be used for lot of things for example
+ ### Lambda Expressions can be used for lot of things for example
  
- ### For sorting given arrayList of items
+ #### For sorting given arrayList of items
  ```
  List<String> mItems = new ArrayList<>(Arrays.asList("bmw", "maruti", "audi", "lamborghini"));
  ```
@@ -89,7 +87,7 @@ buttonView.setOnClickListener(new View.OnClickListener() {
     });
  ```
  
- ### For creating Runnables
+ #### For creating Runnables
  
  ```
    new Handler().postDelayed(() -> {
@@ -113,6 +111,59 @@ new Handler().postDelayed(new Runnable() {
 ```
  
  ## Default and static interface methods
+Java 8 provides the ability to add non abstract methods using `default` and `static` keyword. 
+
+#### Java default interface method
+Deafult interface methods are methods with implementation i.e non-abstract. 
+
+```
+public interface Log {
+    String logLevel();
+    
+    default void log(String message) {
+        System.out.println(message);
+    }
+    
+    static boolean isLoggingEnabled() {
+        return true;
+    }
+}
+```
+
+First thing first default method are not forced to be implemented in every implementations and that's also the reason **why they were introduced**. Previously adding any new method in interface required changes in all it's implementations. A long time headache is resolved with it.
+```
+public class LogObserver implements Log {
+
+    @Override
+    public void logLevel(String logLevel) {
+        
+    }
+    
+    //implementing default log method is optional
+}
+```
+And you can access default methods without implementing it.
+
+```
+Log logObject = new Log() {
+      @Override
+      public void logLevel(String logLevel) {
+
+      }
+  };
+
+  logObject.log("I am default method");
+```        
+#### Java static interface method
+Java static interface methods can't be overriden. They behave just like class static methods. They can be accessed using dot operator. For ex: `isLoggingEnabled()` is a static method in Log interface and can be accessed as
+
+```
+Log.isLoggingEnabled();
+```
+
+Java interface static method is visible to interface methods only. So we can access `isLoggingEnabled` from other interface methods. They can't be accessed via object instance.
+
+#### 
  
  ## Try with resource
  The try-with-resources statement is a `try` statement that declares one or more resources. The resource is as an object that must be closed after finishing the program. The try-with-resources statement ensures that each resource is closed at the end of the statement execution.
