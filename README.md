@@ -3,7 +3,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/balsikandar/Android-Studio-Plugins/blob/master/LICENSE)
 
-## This is a guide for all java 8 APIs that are currently supported in android. 
+## This is a guide for java 8 APIs, open source libraries and plugins that help us to keep up with newer language features for Android using java
 
 #### Spread Some :heart:
 
