@@ -1,3 +1,5 @@
+<img src = https://github.com/balsikandar/keeping-up-with-java/blob/master/assets/keeping-up-with-kotlin.jpeg>
+
 # keeping-up-with-java
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
