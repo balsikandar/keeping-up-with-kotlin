@@ -1,4 +1,4 @@
-# java8-android-tutorial
+# keeping-up-with-kotlin
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/balsikandar/Android-Studio-Plugins/blob/master/LICENSE)
@@ -11,13 +11,14 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/balsikandar.svg?style=social)](https://twitter.com/balsikandar)
 
 
-This is a list of all currently supported java 8 APIs for Android. This repo will be updated regularly for new entries.
+This is a list of all currently supported java 8 APIs for Android, other Open source libraries and plugin that helps java to be used at best in android platform. This repo will be updated regularly for new entries and everyone can contribute.
 
 Here is an [article](...) related to this repo.
 
 ## Table of Contents
 
    * [Lambda Expressions](#lambda-expressions)
+   * [Default and static interface methods](#default-and-static-interface-methods)
    * [Try with resource](#try-with-resource)
    * [Method references](#method-references)
    * [Optional](#optional)
@@ -29,8 +30,89 @@ Here is an [article](...) related to this repo.
       * [filter](#filter)
       * [map](#map)
       * [flatMap](#flatmap)
+   *  [Lombok](#lombok)   
    
  ## Lambda Expressions
+ The Lambda expression is used to provide the implementation of an interface which has functional interface. A functional interface is an interface with one and only one abstract method.
+ 
+Lambda expressions provides these functionalities.
+
+* Enables to treat functionality as a method argument, or code as data.
+* A function that can be created without belonging to any class.
+* A lambda expression can be passed around as if it was an object and executed on demand.
+
+
+Lambda expressions introduce the new arrow operator `->` into Java. It divides the lambda expressions in two parts:
+
+```
+n -> n + n
+```
+The left side of arrow operator specifies the parameters required by the expression, which could also be empty `() -> {}` if no parameters are required. The right side of arrow operator is the actual expression.
+
+Check setOnClickListener statement with lambda expressions
+
+```
+   buttonView.setOnClickListener(view -> dismiss());
+```
+previously same was achieved like this
+```
+buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+```
+
+ ## Lambda Expressions can be used for lot of things for example
+ 
+ ### For sorting given arrayList of items
+ ```
+ List<String> mItems = new ArrayList<>(Arrays.asList("bmw", "maruti", "audi", "lamborghini"));
+ ```
+ We can use Collections API with lambda expression like this
+ ```
+ Collections.sort(items, (s1, s2) -> s1.compareToIgnoreCase(s2));
+ ```
+ It can be further transformed using method references(explained below) like this
+ ```
+ Collections.sort(items, String::compareToIgnoreCase);
+ ```
+ 
+ before to do the same we did
+ ```
+ Collections.sort(items, new Comparator<String>() {
+      @Override
+      public int compare(String s1, String s2) {
+        return s1.compareToIgnoreCase(s2);
+      }
+    });
+ ```
+ 
+ ### For creating Runnables
+ 
+ ```
+   new Handler().postDelayed(() -> {
+      //statement1
+      //statement2
+      //...
+  }, 1000);
+        
+```    
+
+Before same was done as follows
+```
+new Handler().postDelayed(new Runnable() {
+    @Override
+    public void run() {
+      //statement1
+      //statement2
+      //...
+    }
+}, 1000);
+```
+ 
+ ## Default and static interface methods
  
  ## Try with resource
  The try-with-resources statement is a `try` statement that declares one or more resources. The resource is as an object that must be closed after finishing the program. The try-with-resources statement ensures that each resource is closed at the end of the statement execution.
@@ -143,5 +225,7 @@ if (carOptional.isPresent()) {
  
  ### flatMap
  If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional. Throws NullPointerException if the mapping function is null or returns a null result
+ 
+ ## Lombok
  
  
