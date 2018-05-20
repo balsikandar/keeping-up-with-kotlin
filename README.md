@@ -227,10 +227,60 @@ if (carOptional.isPresent()) {
  If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional. Throws NullPointerException if the mapping function is null or returns a null result
  
  ## Lombok
+ Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again. It uses annotations to generate boilerplate code for you. Check this [link](https://projectlombok.org/setup/android) for lombok setup instruction
  
+ #### @Data 
+ How to use Lombok to remove getter/setters, toString, equals all the other mess of Pojo for given class.
  
+ ```
+ public class Student {
+    int id;
+    String name, branch;
 
+    public Student(int id, String name, String branch) {
+        this.id = id;
+        this.name = name;
+        this.branch = branch;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    //override equals, hashCode,toString
+}
+ ```
+ 
+Above Student class can be transformed using Lombok @Data Annotation concisely
+
+```
+import lombok.Data;
+@Data
+public class Student {
+    private int id;
+    private String name, branch;
+}
+```
 
 ### Contributing to this Repo
 If you feel something is missing. Create a pull request and Dive In.
