@@ -30,7 +30,7 @@ Here is an [article](...) related to this repo.
       * [filter](#filter)
       * [map](#map)
       * [flatMap](#flatmap)
-   *  [Lombok](#lombok)  
+   *  [Lombok](#lombok)
    *  [Android studio plugins](#android-studio-plugins)
    
  ## Lambda Expressions
@@ -217,7 +217,7 @@ public String readFileInJava7() throws IOException {
  ```
  
  ### isPresent
- Return true if there is a value present, otherwise false. If value is present then we can use `get()` method in Optional class to access the value contained in the Optional object. So `carOptional.get()` returns Car object.
+ Returns true if there is a value present, otherwise false. If value is present then we can use `get()` method in Optional class to access the value contained in the Optional object. So `carOptional.get()` returns Car object.
  
 ```
 Optional<Car> carOptional = Optional.ofNullable(carObject);
@@ -225,7 +225,7 @@ if (carOptional.isPresent()) {
     System.out.println(carOptional.get());
 }
 ```
-Previously same was achived like this
+Previously same was achived by this
 ```
 Car car = ..//car object initialisation
 if(car != null) {
@@ -234,7 +234,7 @@ if(car != null) {
 ```
  
  ### orElse
- Return the value if present, otherwise returns other. "other" is basically an alternate value that we can supply in the absence of  original value.
+ Returns the value if present, otherwise returns other. "other" is basically an alternate value that we can provide in the absence of the original value.
  
  ```
 Optional<Car> carOptional = Optional.ofNullable(carObject);
@@ -244,12 +244,12 @@ if (carOptional.isPresent()) {
 ```
  
  ### orElseGet
- Return the value if present, otherwise invoke other and return the result of that invocation. "other" here is an functional interface whose functional method is `get()`.
+ Returns the value if present, otherwise invokes other and returns the result of that invocation. "other" here is an functional interface. A functional interface is an interface with one and only one abstract method. So here if carObject is null then `orElseGet()` will return the result from `getNewObject()` call. 
  
   ```
 Optional<Car> carOptional = Optional.ofNullable(carObject);
 if (carOptional.isPresent()) {
-    System.out.println(carOptional.orElseGet(() -> anotherCarObject));
+    System.out.println(carOptional.orElseGet(() -> getNewObject()));
 }
 ```
  
@@ -258,7 +258,7 @@ if (carOptional.isPresent()) {
  ```
  Car car = ..//car object initialisation
  if(car != null && car.isAutomatic()) {
-     System.out.println(car);
+     System.out.println(car.getName());
  }
 ```
  
@@ -269,16 +269,51 @@ Optional<Car> carOptional = Optional.ofNullable(carObject)
 .filter(Car::isAutoMatic);
 
 if (carOptional.isPresent()) {
-    System.out.println(carOptional.get());
+    System.out.println(carOptional.get().getCarName());
 }
 ```
  
  
  ### map
- If a value is present, apply the provided mapping function to it, and if the result is non-null, return an Optional describing the result. Otherwise return an empty Optional. Throws NullPointerException if the mapping function is null
+ If a value is present, applies the provided mapping function to it, and if the result is non-null, returns an Optional describing the result otherwise returns an empty Optional. It throws NullPointerException if the mapping function is null
+ 
+ If you have to access price of a model with heirarchy like this
+ ```
+ String version = vehicle.getCar().getModel().getPrice();
+ ```
+ 
+ you'll have to add nested checks something similar to
+ ```
+  if (vehicle != null) {
+        Car car = vehicle.getCar();
+        if (car != null) {
+            Model model = car.getModel();
+            if (model != null) {
+                int price = model.getPrice();
+            }
+
+        }
+    }
+ ```
+ Not only this creates reading disability it's also not that safe to manage, with `map` funtion in Optional class now we can remove this nesting of `null` checks 
+ ```
+ int price = vehicle.flatMap(Vehicle::getCar)
+        .flatMap(Car::getModel)
+        .map(Model::getPrice)
+        .orElse(0);
+ ```
+ Quite readable and if any of these object is null then `Optional.empty()` will be returned. For ex: if car object is null then `Optional.empty()` will be returned and methods below `flatMap(Car::getModel)` will not be executed.
  
  ### flatMap
  If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional. Throws NullPointerException if the mapping function is null or returns a null result
+ 
+ `map` and `flatMap` work same with the only difference that `map` returns value by wrapping it with Optional class first 
+ so if we would have accessed above price value using `map` function only, we would have got this
+ 
+ ```
+ Optional<Optional<Opional<Integer>>> price = ... 
+ ```
+ So use flatMap to avoid nested wrapping of Optional class.
  
  ## Lombok
  Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again. It uses annotations to generate boilerplate code for you. Check this [link](https://projectlombok.org/setup/android) for lombok setup instruction
@@ -336,7 +371,7 @@ public class Student {
 }
 ```
 
-## [Android studio plugins]((https://github.com/balsikandar/Android-Studio-Plugins))
+## [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
 This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
 
 ### Contributing to this Repo
