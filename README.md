@@ -198,6 +198,16 @@ public String readFileInJava7() throws IOException {
  ## Method References
  
   You use lambda expressions to create anonymous methods. Sometimes, however, a lambda expression does nothing but call an  existing method. In those cases, it's often clearer to refer to the existing method by name. Method references enable you to   do this; they are compact, easy-to-read lambda expressions for methods that already have a name.
+  
+  If we have to just call say getCar() method from Vehicle class then with lambda it'll be 
+  
+  ```
+  vehicle.flatMap(vehicleObject -> vehicleObject.getCar())
+  ```
+  for such cases we can create more compact and clearer lambda expression with Scope Resolution Operator :: as below
+  ```
+    vehicle.flatMap(Vehicle::getCar)
+  ```
  
  ## Optional
  Tony Hoare introduced Null references in ALGOL W back in 1965 "simply because it was so easy to implement", says Mr. Hoare.    He talks about that decision considering it "my billion-dollar mistake". To deal with it we got Optional class in java 8 which is "A container object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value". 
@@ -307,7 +317,7 @@ if (carOptional.isPresent()) {
  ### flatMap
  If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional. Throws NullPointerException if the mapping function is null or returns a null result
  
- `map` and `flatMap` work same with the only difference that `map` returns value by wrapping it with Optional class first 
+ `map` and `flatMap` works same with the only difference that `map` returns value by wrapping it with Optional class first 
  so if we would have accessed above price value using `map` function only, we would have got this
  
  ```
