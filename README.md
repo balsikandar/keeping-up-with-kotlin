@@ -336,7 +336,7 @@ public class Student {
 }
 ```
 
-## [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
+## Android studio plugins
 This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
 
 ### Contributing to this Repo
