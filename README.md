@@ -30,7 +30,8 @@ Here is an [article](...) related to this repo.
       * [filter](#filter)
       * [map](#map)
       * [flatMap](#flatmap)
-   *  [Lombok](#lombok)   
+   *  [Lombok](#lombok)  
+   *  [Android-studio-plugins](#Android-Studio-Plugins)
    
  ## Lambda Expressions
  The Lambda expression is used to provide the implementation of an interface which has functional interface. A functional interface is an interface with one and only one abstract method.
@@ -334,6 +335,9 @@ public class Student {
     private String name, branch;
 }
 ```
+
+## [Android-studio-plugins](https://github.com/balsikandar/Android-Studio-Plugins)
+This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
 
 ### Contributing to this Repo
 If you feel something is missing. Create a pull request and Dive In.
