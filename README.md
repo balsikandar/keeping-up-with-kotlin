@@ -13,7 +13,7 @@
 
 This is a list of all currently supported java 8 APIs for Android, other Open source libraries and plugin that helps java to be used at best in android platform. This repo will be updated regularly for new entries and everyone can contribute.
 
-Here is an [article](...) related to this repo.
+Here is an [article](https://medium.com/mindorks/keeping-up-with-kotlin-4c0bf7ffacc6) related to this repo.
 
 ## Table of Contents
 
@@ -212,7 +212,7 @@ public String readFileInJava7() throws IOException {
  ## Optional
  Tony Hoare introduced Null references in ALGOL W back in 1965 "simply because it was so easy to implement", says Mr. Hoare.    He talks about that decision considering it "my billion-dollar mistake". To deal with it we got Optional class in java 8 which is "A container object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value". 
  
- For Optional integration use [this](https://github.com/dmstocking/support-optional) library for backward compatibility. You can also refer to the article related to this for alternate options.
+ For Optional integration use [this](https://github.com/dmstocking/support-optional) library for backward compatibility. You can also refer to the [article](https://medium.com/mindorks/keeping-up-with-kotlin-4c0bf7ffacc6) related to this for alternate options.
  
  ### of
  
