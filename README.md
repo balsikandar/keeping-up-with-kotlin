@@ -30,8 +30,15 @@ Here is an [article](https://medium.com/mindorks/keeping-up-with-kotlin-4c0bf7ff
       * [filter](#filter)
       * [map](#map)
       * [flatMap](#flatmap)
+   *  [Type Annotations](#type-annotations)
+   *  [Repeating Annotations](#repeating-annotations)
+   *  [Stream](#stream)
+   *  [Functional interfaces](#functional-interfaces)
    *  [Lombok](#lombok)
+      * [@Data](#data)
+      * [@Builder](#builder)
    *  [Android studio plugins](#android-studio-plugins)
+
    
  ## Lambda Expressions
  The Lambda expression is used to provide the implementation of an interface which has functional interface. A functional interface is an interface with one and only one abstract method.
@@ -326,11 +333,21 @@ if (carOptional.isPresent()) {
  Optional<Optional<Opional<Integer>>> price = ... 
  ```
  So use flatMap to avoid nested wrapping of Optional class.
+
+ ## Type Annotations
+ To be updated..
  
+ ## Repeating Annotations
+ To be updated..
+ 
+ ## Stream
+ 
+ ## Functional interfaces
+  
  ## Lombok
  Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again. It uses annotations to generate boilerplate code for you. Check this [link](https://projectlombok.org/setup/android) for lombok setup instruction
  
- #### @Data 
+ ### @Data 
  How to use Lombok to remove getter/setters, toString, equals all the other mess of Pojo for given class.
  
  ```
@@ -382,6 +399,7 @@ public class Student {
     private String name, branch;
 }
 ```
+### @Builder
 
 ## [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
 This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
