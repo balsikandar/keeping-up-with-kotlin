@@ -11,7 +11,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/balsikandar.svg?style=social)](https://twitter.com/balsikandar)
 
 
-This is a list of all currently supported java 8 APIs for Android, other Open source libraries and plugin that helps java to be used at best in android platform. This repo will be updated regularly for new entries and everyone can contribute.
+This is a list of all currently supported java 8 APIs for Android, other Open source libraries and plugin that helps java to be used at best in android platform. This repo will be updated regularly for new entries and everyone can contribute by using [issue tracker](https://github.com/balsikandar/keeping-up-with-kotlin/issues).
 
 Here is an [article](https://medium.com/mindorks/keeping-up-with-kotlin-4c0bf7ffacc6) related to this repo.
 
@@ -387,7 +387,7 @@ public class Student {
 This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
 
 ### Contributing to this Repo
-If you feel something is missing. Create a pull request and Dive In.
+If you feel something is missing. you can use [issue tracker](https://github.com/balsikandar/keeping-up-with-kotlin/issues) to include it. You can also create a pull request to add missing pieces.
 
 ### Check out another awesome library to capture your crashes instantly and locally.
 [CrashReporter](https://github.com/MindorksOpenSource/CrashReporter) on your duty.
