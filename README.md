@@ -38,7 +38,10 @@ Here is an [article](https://medium.com/mindorks/keeping-up-with-kotlin-4c0bf7ff
       * [@Data](#data)
       * [@Builder](#builder)
    *  [Android studio plugins](#android-studio-plugins)
-
+   *  [Android Libraries](#android-libraries)
+      * [Android Debug Database](#android-debug-database)
+      * [Robin](#robin)
+      
    
  ## Lambda Expressions
  The Lambda expression is used to provide the implementation of an interface which has functional interface. A functional interface is an interface with one and only one abstract method.
@@ -403,6 +406,28 @@ public class Student {
 
 ## [Android studio plugins](https://github.com/balsikandar/Android-Studio-Plugins)
 This is a repo that maintains list of plugins that helps every android developer to be productive. It has plugins to help with debugging, UI design, Code generation and for adding support for newer platfroms like flutter and kotlin directly to their Android studio.
+
+## Android Libraries
+
+### Android Debug Database
+Android Debug Database allows you to view databases and shared preferences directly in your browser in a very simple way.
+ ### What can Android Debug Database do?
+* See all the databases.
+* See all the data in the shared preferences used in your application.
+* Run any sql query on the given database to update and delete your data.
+* Directly edit the database values.
+* Directly edit the shared preferences.
+* Directly add a row in the database.
+* Directly add a key-value in the shared preferences.
+* Delete database rows and shared preferences.
+* Search in your data.
+* Sort data.
+* Download database.
+* Debug Room inMemory database.
+
+### Robin
+
+Robin is a logging library for Bundle data passed between Activities and fragments. It also provides a callback to send screen views of user visited pages to your analytics client
 
 ### Contributing to this Repo
 If you feel something is missing. you can use [issue tracker](https://github.com/balsikandar/keeping-up-with-kotlin/issues) to include it. You can also create a pull request to add missing pieces.
