@@ -1,4 +1,4 @@
-<img src = https://github.com/balsikandar/keeping-up-with-java/blob/master/assets/keeping-up-with-kotlin.jpeg>
+<img src = https://github.com/balsikandar/Robin/blob/master/assets/robin-img.png>
 
 # keeping-up-with-kotlin
 
