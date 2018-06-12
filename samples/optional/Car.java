@@ -1,3 +1,5 @@
+package com.balsikandar.model;
+
 public class Car {
 
   private int yearModel;
